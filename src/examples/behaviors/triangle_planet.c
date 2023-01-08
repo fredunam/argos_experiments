@@ -182,6 +182,7 @@ void loop() {
     printf("neightbour[3][1]: %d\n", neighbours[kilo_uid][1]);
     printf("\n");
     printf("neighbour_distance[0][0]: %f\n", neighbour_distance[0][0]);
+    printf("test commit github\n");
     printf("----------------------------------------------\n");
 
     if (new_message == 1) {
