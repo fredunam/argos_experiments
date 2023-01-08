@@ -1,0 +1,84 @@
+<?xml version="1.0" ?>
+<argos-configuration>
+
+  <!-- ************************* -->
+  <!-- * General configuration * -->
+  <!-- ************************* -->
+  <framework>
+    <system threads="0" />
+    <experiment length="0"
+                ticks_per_second="31"
+                random_seed="124" />
+  </framework>
+
+  <!-- *************** -->
+  <!-- * Controllers * -->
+  <!-- *************** -->
+  <controllers>
+
+    <kilobot_controller id="bot">
+      <actuators>
+        <differential_steering implementation="default" />
+        <kilobot_led implementation="default" />
+        <kilobot_communication implementation="default" />
+      </actuators>
+      <sensors>
+        <kilobot_communication implementation="default" medium="kilocomm" show_rays="true" />
+      </sensors>
+      <params behavior="build/examples/behaviors/orbit_double" />
+    </kilobot_controller>
+
+  </controllers>
+
+  <!-- *********************** -->
+  <!-- * Arena configuration * -->
+  <!-- *********************** -->
+  <arena size="2, 2, 1" center="0,0,0.5">
+    <kilobot id="kb0">
+      <body position="0,0,0" orientation="0,0,0" />
+      <controller config="bot" />>
+    </kilobot>
+
+    <kilobot id="kb1">
+      <body position="0.055,0,0" orientation="0,0,0" />
+      <controller config="bot" />>
+    </kilobot>
+
+    <kilobot id="kb2">
+      <body position="0,0.055,0" orientation="0,0,0" />
+      <controller config="bot" />>
+    </kilobot>
+
+  </arena>
+
+  <!-- ******************* -->
+  <!-- * Physics engines * -->
+  <!-- ******************* -->
+  <physics_engines>
+    <dynamics2d id="dyn2d" />
+  </physics_engines>
+
+  <!-- ********* -->
+  <!-- * Media * -->
+  <!-- ********* -->
+  <media>
+    <kilobot_communication id="kilocomm" />
+  </media>
+
+  <!-- ****************** -->
+  <!-- * Visualization * -->
+  <!-- ****************** -->
+    <visualization>
+      <qt-opengl>
+        <camera>
+          <placements>
+              <placement index="0" position="0,0.075,0.675" look_at="0,0.075,-0.325" up="2,0,0" lens_focal_length="10" />
+              <placement index="1" position="-3.5,0,2" look_at="0,0,0" up="1,0,0" lens_focal_length="30" />
+              <placement index="2" position="0.0991124,-0.22085,0.257469" look_at="0.0991124,-0.22085,-0.742531" up="0.994856,-0.101302,0" lens_focal_length="20" />
+              <placement index="3" position="0,0.075,0.675" look_at="0,0.075,-0.325" up="1,0,0" lens_focal_length="7" />
+          </placements>
+        </camera>
+      </qt-opengl>
+    </visualization>
+
+</argos-configuration>
